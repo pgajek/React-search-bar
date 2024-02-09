@@ -4,6 +4,8 @@ import Card from "./components/Card";
 import axios from "axios";
 import { useDebounce } from "./hooks/useDebounce";
 
+const apiKey = import.meta.env.VITE_RAPID_API_KEY;
+
 function App() {
   const [cards, setCards] = useState([]);
   const [searchValue, setSearchValue] = useState<string>("");
@@ -15,7 +17,7 @@ function App() {
       method: "GET",
       url: `https://omgvamp-hearthstone-v1.p.rapidapi.com/cards/search/${name}`,
       headers: {
-        "X-RapidAPI-Key": "680b1fbb7cmshc2ad2792cd374bdp104393jsne359b5a60a11",
+        "X-RapidAPI-Key": apiKey,
         "X-RapidAPI-Host": "omgvamp-hearthstone-v1.p.rapidapi.com",
       },
     };
@@ -29,6 +31,7 @@ function App() {
   };
 
   useEffect(() => {
+    console.log(apiKey);
     getCards(debounceSearch);
   }, [debounceSearch]);
 
