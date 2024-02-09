@@ -3,14 +3,14 @@ import "./Card.css";
 
 interface CardProps {
   name: string;
-  email: string;
+  playerClass: string;
 }
 
-const Card: FC<CardProps> = ({ name, email }) => {
+const Card: FC<CardProps> = ({ name, playerClass }) => {
   return (
     <div className="card">
       <header className="card-header">{name}</header>
-      <div className="card-body">{email}</div>
+      <div className="card-body">{playerClass}</div>
     </div>
   );
 };
